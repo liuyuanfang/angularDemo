@@ -1,0 +1,32 @@
+<div>
+    <button mat-stroked-button color="primary" (click)="onRefresh();"> Refresh</button>
+    <button mat-raised-button color="primary" (click)="onUploadAnimal();"> Upload</button>
+    <button mat-flat-button color="primary" (click)="onDelete();"> Delete</button>
+</div>
+
+<p-table [value]="animalData" [lazy]="true" (onLazyLoad)="loadAnimalData($event)" [paginator]="true" [rows]="10"
+    [totalRecords]="totalRecords">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="country.name">Country <p-sortIcon field="country.name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="company">Company <p-sortIcon field="company"></p-sortIcon>
+            </th>
+            <th pSortableColumn="representative.name">Representative <p-sortIcon field="representative.name">
+                </p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr>
+            <td>{{customer.name}}</td>
+            <td>{{customer.country.name}}</td>
+            <td>{{customer.company}}</td>
+            <td>{{customer.representative.name}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
