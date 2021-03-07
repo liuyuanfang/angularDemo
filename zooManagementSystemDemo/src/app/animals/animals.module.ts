@@ -7,10 +7,15 @@ import { AnimalsRoutingModule } from './animals-routing.module';
 import { AnimalsServiceService } from "./animals-service.service"
 
 import { AnimalsComponent } from "./animals/animals.component";
+import { UploadAnimalComponent } from './upload-animal/upload-animal.component';
 
 @NgModule({
     declarations: [
-        AnimalsComponent
+        AnimalsComponent,
+       
+    ],
+    entryComponents:[
+        UploadAnimalComponent
     ],
     imports: [
         CommonModuleModule,

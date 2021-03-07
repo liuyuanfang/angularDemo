@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AnimalsServiceService } from '../animals-service.service';
+
+import { UploadAnimalComponent } from "../upload-animal/upload-animal.component"
 
 @Component({
   selector: 'app-animals',
@@ -11,12 +14,12 @@ export class AnimalsComponent implements OnInit {
   animalData: any[] = [];
   totalRecords: number = 0;
   constructor(
-    private animalSrv: AnimalsServiceService
+    private animalSrv: AnimalsServiceService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    console.log("zheshishenem............");
-    this.getAnimal();
+
   }
 
   loadAnimalData(evnet) {
@@ -44,6 +47,14 @@ export class AnimalsComponent implements OnInit {
   }
 
   onUploadAnimal() {
+    let dialogRef = this.dialog.open(UploadAnimalComponent, {
+      height: '400px',
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
 
   }
 

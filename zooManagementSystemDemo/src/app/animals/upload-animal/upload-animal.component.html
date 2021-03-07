@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Upload Animal</h2>
+
+<mat-dialog-content>
+    <div class="col-xs-6">
+        <mat-form-field>
+            <mat-label>Animal Kind</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let animalKind of AnimalKind" [value]="animalKind.id">
+                    {{animalKind.animalType}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-xs-6">
+        <mat-form-field>
+            <mat-label>动物名称</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+
+    </div>
+    <div class="col-xs-6">
+        <mat-form-field>
+            <mat-label>动物描述</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+
+    </div>
+    <div class="col-xs-6">
+        <mat-form-field>
+            <mat-label>饲养员名称</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>

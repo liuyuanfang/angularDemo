@@ -1,4 +1,4 @@
-<div>
+<div class="button-row">
     <button mat-stroked-button color="primary" (click)="onRefresh();"> Refresh</button>
     <button mat-raised-button color="primary" (click)="onUploadAnimal();"> Upload</button>
     <button mat-flat-button color="primary" (click)="onDelete();"> Delete</button>
@@ -8,15 +8,11 @@
     [totalRecords]="totalRecords">
     <ng-template pTemplate="header">
         <tr>
-            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
-            </th>
-            <th pSortableColumn="country.name">Country <p-sortIcon field="country.name"></p-sortIcon>
-            </th>
-            <th pSortableColumn="company">Company <p-sortIcon field="company"></p-sortIcon>
-            </th>
-            <th pSortableColumn="representative.name">Representative <p-sortIcon field="representative.name">
-                </p-sortIcon>
-            </th>
+            <th pSortableColumn="name">动物名称 </th>
+            <th pSortableColumn="country.name">动物种类 </th>
+            <th pSortableColumn="company">饲养员名称 </th>
+            <th pSortableColumn="representative.name">饲养员工号 </th>
+            <th> 操作 </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-customer>
@@ -24,9 +20,8 @@
             <td>{{customer.name}}</td>
             <td>{{customer.country.name}}</td>
             <td>{{customer.company}}</td>
-            <td>{{customer.representative.name}}</td>
+            <td>{{customer.representative}}</td>
+            <td></td>
         </tr>
     </ng-template>
 </p-table>
-
-

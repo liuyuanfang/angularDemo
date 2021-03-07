@@ -6,25 +6,29 @@ import { Injectable } from '@angular/core';
 })
 export class AnimalsServiceService {
 
-  zooAnimalUrl:string = "http://localhost:8080/zoo/animals"
+  zooAnimalUrl: string = "http://localhost:8080/zoo/animals"
   constructor(
-  private http:HttpClient
+    private http: HttpClient
   ) { }
-  
-  getAnimal(){
-  return this.http.get(this.zooAnimalUrl);
+
+  getAnimalKind() {
+    let url = `${this.zooAnimalUrl}/types`
+    return this.http.get(url);
   }
-  
-  getAnimalDetailById(id:string){
-  this.http.get(`${this.zooAnimalUrl}?id=${id}`);
+  getAnimal() {
+    return this.http.get(this.zooAnimalUrl);
   }
-  
-  addAnimal(){
-  this.http.get(this.zooAnimalUrl);
+
+  getAnimalDetailById(id: string) {
+    this.http.get(`${this.zooAnimalUrl}?id=${id}`);
   }
-  
-  deleteAnimal(id:string){
-  this.http.delete(`${this.zooAnimalUrl}/${id}`);
+
+  addAnimal() {
+    this.http.get(this.zooAnimalUrl);
+  }
+
+  deleteAnimal(id: string) {
+    this.http.delete(`${this.zooAnimalUrl}/${id}`);
   }
 }
 
