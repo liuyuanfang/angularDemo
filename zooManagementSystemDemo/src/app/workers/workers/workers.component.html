@@ -1,0 +1,38 @@
+
+
+<div>
+    <button mat-raised-button (click)="onRefresh();">Refresh</button>
+    <button mat-raised-button (click)="onRefresh();">Add Worker</button>
+    <button mat-raised-button (click)="onRefresh();">Search</button>
+</div>
+
+<p-table [value]="workersInfo" [lazy]="true" (onLazyLoad)="loadWorkersData($event)" [paginator]="true" [rows]="10"
+    [totalRecords]="totalRecords">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="workerName">Name <p-sortIcon field="workerName"></p-sortIcon>
+            </th>
+            <th pSortableColumn="workerNumber">工号 <p-sortIcon field="workerNumber"></p-sortIcon>
+            </th>
+            <th pSortableColumn="workerPosition">职位 <p-sortIcon field="workerPosition"></p-sortIcon>
+            </th>
+            <th pSortableColumn="workerDepartment">部门 <p-sortIcon field="workerDepartment"></p-sortIcon>
+            </th>
+            <th pSortableColumn="joinZooTime">入职时间 <p-sortIcon field="joinZooTime"></p-sortIcon>
+            </th>
+            <th >Actions </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-worker>
+        <tr>
+            <td title="{{ worker.workerName}}">{{ worker.workerName}}</td>
+            <td title="{{ worker.workerNumber}}">{{ worker.workerNumber}}</td>
+            <td title="{{ worker.workerPosition}}">{{ worker.workerPosition}}</td>
+            <td title="{{ worker.workerDepartment}}">{{ worker.workerDepartment}}</td>
+            <td title="{{ worker.joinZooTime}}">{{ worker.joinZooTime }}</td>
+            <td>
+
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
