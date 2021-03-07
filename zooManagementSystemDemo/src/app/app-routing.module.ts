@@ -7,6 +7,10 @@ const routes: Routes = [
     path: "animals",
     loadChildren: () => import('./animals/animals.module').then(mod => mod.AnimalsModule),
   },
+     {
+        path: "worker",
+        loadChildren: () => import("./workers/workers.module").then((mod) => mod.WorkersModule)
+    },
   {
     redirectTo:"animals",
     path:"",
